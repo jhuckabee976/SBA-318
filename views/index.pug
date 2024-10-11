@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="/styles.css")
+  body
+    h1= title
+    ul
+      each creature in creatures
+        li= creature.name + ': ' + creature.description
+        form(action="/delete-creature" method="POST" style="display: inline; margin-left: 10px;")
+          input(type="hidden" name="name" value=creature.name)
+          button(type="submit") Delete
+    form(action="/creature" method="POST")
+      label(for="name") Name:
+      input(type="text" name="name" required)
+      label(for="description") Description:
+      input(type="text" name="description" required)
+      button(type="submit") Add Creature
+
+
+
+
